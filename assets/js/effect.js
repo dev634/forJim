@@ -3,6 +3,7 @@ let arrow2 = document.getElementById("arrow-2");
 let arrow3 = document.getElementById("arrow-3");
 let arrow4 = document.getElementById("arrow-4");
 let wrapper = document.getElementById("wrapper");
+let img2 = document.getElementById("img-2");
 
 arrow1.addEventListener("click", function (e) {
 	wrapper.classList.add("toLeft");
@@ -22,3 +23,7 @@ arrow3.addEventListener("click", function (e) {
 arrow4.addEventListener("click", function (e) {
 	wrapper.classList.add("toRight");
 });
+
+window.onscroll = function () {
+	console.log("hello");
+};

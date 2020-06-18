@@ -13,9 +13,6 @@
 body,
 html {
 	overflow: hidden;
-	scroll-behavior: smooth;
-	scrollbar-color: transparent #202020;
-	scrollbar-width: thin;
 	transition: all 0.4s ease;
 }
 
@@ -38,7 +35,7 @@ html {
 	width: 100vw;
 	height: 100vh;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-position: center;
 }
 
 .img-1 {
@@ -47,8 +44,7 @@ html {
 
 .img-2 {
 	background-image: url("../img/img-2.jpg");
-	background-size: 120% auto;
-	animation: scaling 1s forwards;
+	animation: scaling ease 1s forwards;
 }
 
 .img-3 {
@@ -129,10 +125,10 @@ html {
 
 @keyframes scaling {
 	from {
-		background-size: 120% auto;
+		background-size: 200%;
 	}
 
 	to {
-		background-size: cover;
+		background-size: 100%;
 	}
 }
