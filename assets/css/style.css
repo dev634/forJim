@@ -47,6 +47,8 @@ html {
 
 .img-2 {
 	background-image: url("../img/img-2.jpg");
+	background-size: 120% auto;
+	animation: scaling 1s forwards;
 }
 
 .img-3 {
@@ -123,4 +125,14 @@ html {
 	position: relative;
 	top: 0vh;
 	transition: all 0.4s ease-out;
+}
+
+@keyframes scaling {
+	from {
+		background-size: 120% auto;
+	}
+
+	to {
+		background-size: cover;
+	}
 }
