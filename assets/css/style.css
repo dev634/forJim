@@ -26,6 +26,7 @@ body {
 .heading {
 	display: flex;
 	position: relative;
+	width: 1200px;
 }
 
 .img-1 .layer {
@@ -72,6 +73,39 @@ body {
 	color: var(--white);
 	position: relative;
 	animation: fadeIn 1s ease-out, fromRight 1s ease-out;
+}
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	height: 70px;
+	width: 100%;
+	padding: 0 15rem;
+	border-top: 2px solid var(--white);
+}
+
+.navbar .navbar_box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 50px;
+	height: 50px;
+}
+
+.navbar_box .navbar_line {
+	position: relative;
+	height: 2px;
+	width: 100%;
+	background-color: var(--white);
+	border-radius: 10px;
+}
+
+.navbar_box .navbar_line:not(:last-child) {
+	margin-bottom: 12px;
 }
 
 .wrapper {
@@ -298,4 +332,9 @@ body {
 		top: 0px;
 		height: 291.5px;
 	}
+}
+
+/* Utilities */
+.container {
+	width: 1200px;
 }
