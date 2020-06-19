@@ -41,6 +41,7 @@ body {
 .heading .heading_title {
 	display: flex;
 	position: relative;
+	line-height: 1.5;
 	flex-direction: column;
 	justify-content: center;
 	width: auto;
