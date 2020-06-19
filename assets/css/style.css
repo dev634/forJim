@@ -10,10 +10,8 @@
 	box-sizing: border-box;
 }
 
-body,
-html {
+body {
 	overflow: hidden;
-	transition: all 0.4s ease;
 }
 
 .wrapper {
@@ -44,7 +42,6 @@ html {
 
 .img-2 {
 	background-image: url("../img/img-2.jpg");
-	animation: scaling ease 1s forwards;
 }
 
 .img-3 {
@@ -121,6 +118,15 @@ html {
 	position: relative;
 	top: 0vh;
 	transition: all 0.4s ease-out;
+}
+
+.is-scaling {
+	animation: scaling ease 1s forwards;
+	transition: all 0.4s ease;
+}
+
+.is-scaling-reverse {
+	animation: scaling ease 1s reverse;
 }
 
 @keyframes scaling {
