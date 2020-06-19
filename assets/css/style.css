@@ -10,6 +10,11 @@
 	box-sizing: border-box;
 }
 
+html {
+	font-family: "Roboto";
+	font-size: 10px;
+}
+
 body {
 	overflow: hidden;
 }
