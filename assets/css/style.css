@@ -137,6 +137,9 @@ body {
 	align-items: center;
 	list-style: none;
 	font-size: 3rem;
+}
+
+.social_box .social_box_item .social_box_link {
 	color: var(--white);
 }
 
