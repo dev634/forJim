@@ -97,11 +97,13 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: fixed;
+	left: 0;
 	bottom: 0;
 	height: 70px;
 	width: 100%;
 	padding: 0 15rem;
 	border-top: 2px solid var(--white);
+	z-index: 10;
 }
 
 .navbar .navbar_box {
@@ -128,10 +130,44 @@ body {
 
 .navbar .container {
 	justify-content: space-between;
+	align-items: center;
 }
 
 .navbar .social_box {
 	display: flex;
+}
+
+.selector__block {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 60px;
+}
+
+.selector__block_item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--white);
+	border-radius: 50%;
+}
+
+.selector__block_item:not(:nth-child(even)) {
+	margin-right: 1rem;
+}
+
+.selector {
+	border: none;
+	outline: none;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background-color: var(--white);
+	opacity: 0;
 }
 
 .social_box .social_box_item {
@@ -216,16 +252,16 @@ body {
 
 .arrow-2 {
 	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	transform: translate(-50%, -50%) rotateZ(90deg);
+	bottom: 80px;
+	right: 50%;
+	transform: translate(-30%, -50%) rotateZ(90deg);
 }
 
 .arrow-3 {
 	position: absolute;
 	top: 20px;
 	left: 50%;
-	transform: translate(-50%, 50%) rotateZ(-90deg);
+	transform: translate(-127%, 50%) rotateZ(-90deg);
 }
 
 .arrow-4 {
@@ -262,6 +298,10 @@ body {
 .is-scaling {
 	animation: scaling ease 1s forwards;
 	transition: all 0.4s ease;
+}
+
+.is-current {
+	opacity: 1;
 }
 
 /* Fonts */
