@@ -28,9 +28,11 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	});
 
 	arrow4.addEventListener("click", function (e) {
-		selector[3].classList.remove("is-current");
-		selector[2].classList.add("is-current");
 		wrapper.classList.add("toRight");
+		setTimeout(function () {
+			selector[3].classList.remove("is-current");
+			selector[2].classList.add("is-current");
+		}, 400);
 	});
 
 	arrow3.addEventListener("click", function (e) {
@@ -39,6 +41,6 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			wrapper.classList.remove("toUp", "toLeft", "toRight", "toDown");
 			selector[2].classList.remove("is-current");
 			selector[0].classList.add("is-current");
-		}, 500);
+		}, 400);
 	});
 });
