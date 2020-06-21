@@ -1,4 +1,11 @@
 window.addEventListener("DOMContentLoaded", function (e) {
+	function byId(id) {
+		return document.getElementById(id);
+	}
+	function byClass(classes) {
+		return document.getElementsByClassName(classes);
+	}
+
 	function verifyClass(elmt, className) {
 		return elmt.classList.contains(className);
 	}
@@ -49,13 +56,14 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	}
 
 	//Init variables
-	let arrow1 = document.getElementById("arrow-1");
-	let arrow2 = document.getElementById("arrow-2");
-	let arrow3 = document.getElementById("arrow-3");
-	let arrow4 = document.getElementById("arrow-4");
-	let wrapper = document.getElementById("wrapper");
-	let img2 = document.getElementById("img-2");
-	let selector = document.getElementsByClassName("selector");
+	let arrow1 = byId("arrow-1");
+	let arrow2 = byId("arrow-2");
+	let arrow3 = byId("arrow-3");
+	let arrow4 = byId("arrow-4");
+	let wrapper = byId("wrapper");
+	let img2 = byId("img-2");
+	let navbarBox = byId("navbar_box");
+	let selector = byClass("selector");
 	let timeOut = 400;
 
 	// selector init
@@ -124,5 +132,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			selector[3].classList.remove("is-current");
 			selector[2].classList.add("is-current");
 		}, timeOut);
+	});
+
+	listen(navbarBox, "click", function (e) {
+		console.log("hello");
 	});
 });
