@@ -154,6 +154,7 @@ body {
 	height: 20px;
 	border: 2px solid var(--white);
 	border-radius: 50%;
+	cursor: not-allowed;
 }
 
 .selector__block_item:not(:nth-child(even)) {
@@ -169,6 +170,7 @@ body {
 	background-color: var(--white);
 	opacity: 0;
 	transition: opacity 0.1s ease-out;
+	cursor: pointer;
 }
 
 .social_box .social_box_item {
@@ -366,11 +368,11 @@ body {
 
 @keyframes scaling {
 	from {
-		background-size: 200% auto;
+		background-size: 150%;
 	}
 
 	to {
-		background-size: 100% auto;
+		background-size: 100%;
 	}
 }
 
