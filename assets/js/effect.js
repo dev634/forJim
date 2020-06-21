@@ -36,6 +36,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 		return element.addEventListener(event, callback);
 	}
 
+	//Init variables
 	let arrow1 = document.getElementById("arrow-1");
 	let arrow2 = document.getElementById("arrow-2");
 	let arrow3 = document.getElementById("arrow-3");
@@ -43,6 +44,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let wrapper = document.getElementById("wrapper");
 	let img2 = document.getElementById("img-2");
 	let selector = document.getElementsByClassName("selector");
+	let timeOut = 400;
 
 	// selector init
 	selector[0].classList.add("is-current");
@@ -52,18 +54,15 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			let previous = previousElmt(selector);
 
 			if (elmt.classList.contains("selector__3")) {
-				wrapper.classList.remove("toLeft", "toDown");
-				wrapper.classList.add("toRight", "toUp");
+				move(["toRight", "toUp"], wrapper);
 			}
 
 			if (elmt.classList.contains("selector__2")) {
-				wrapper.classList.remove("toRight", "toUp");
-				wrapper.classList.add("toLeft", "toDown");
+				move(["toLeft", "toDown"], wrapper);
 			}
 
 			if (elmt.classList.contains("selector__4")) {
-				wrapper.classList.remove("toRight", "toDown");
-				wrapper.classList.add("toLeft", "toUp");
+				move(["toLeft", "toUp"], wrapper);
 			}
 			toggleClass(previous, "is-current");
 			toggleClass(elmt, "is-current");
@@ -76,7 +75,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			img2.classList.add("is-scaling");
 			selector[0].classList.remove("is-current");
 			selector[1].classList.add("is-current");
-		}, 200);
+		}, timeOut);
 	});
 
 	arrow2.addEventListener("click", function (e) {
@@ -85,15 +84,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			img2.classList.remove("is-scaling");
 			selector[1].classList.remove("is-current");
 			selector[3].classList.add("is-current");
-		}, 400);
-	});
-
-	arrow4.addEventListener("click", function (e) {
-		move(["toRight", "toUp"], wrapper);
-		setTimeout(function () {
-			selector[3].classList.remove("is-current");
-			selector[2].classList.add("is-current");
-		}, 400);
+		}, timeOut);
 	});
 
 	arrow3.addEventListener("click", function (e) {
@@ -101,6 +92,14 @@ window.addEventListener("DOMContentLoaded", function (e) {
 		setTimeout(function () {
 			selector[2].classList.remove("is-current");
 			selector[0].classList.add("is-current");
-		}, 400);
+		}, timeOut);
+	});
+
+	arrow4.addEventListener("click", function (e) {
+		move(["toRight", "toUp"], wrapper);
+		setTimeout(function () {
+			selector[3].classList.remove("is-current");
+			selector[2].classList.add("is-current");
+		}, timeOut);
 	});
 });
