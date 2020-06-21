@@ -1,4 +1,20 @@
 window.addEventListener("DOMContentLoaded", function (e) {
+	function verifyClass(elmt, className) {
+		return elmt.classList.contains(className);
+	}
+
+	function removeClass(elmt, className) {
+		elmt.classList.remove(className);
+	}
+
+	function toggleClass(elmt, className) {
+		elmt.classList.toggle(className);
+	}
+
+	function addClass(elmt, className) {
+		elmt.classList.add(className);
+	}
+
 	function move(direction = [], element) {
 		switch (direction.join()) {
 			case ["toRight", "toUp"].join():
@@ -28,10 +44,6 @@ window.addEventListener("DOMContentLoaded", function (e) {
 		}
 	}
 
-	function toggleClass(elmt, className) {
-		elmt.classList.toggle(className);
-	}
-
 	function listen(element, event, callback) {
 		return element.addEventListener(event, callback);
 	}
@@ -53,15 +65,24 @@ window.addEventListener("DOMContentLoaded", function (e) {
 		listen(elmt, "click", function (e) {
 			let previous = previousElmt(selector);
 
-			if (elmt.classList.contains("selector__3")) {
+			if (verifyClass(elmt, "selector__3")) {
+				if (verifyClass(img2, "is-scaling")) {
+					removeClass(img2, "is-scaling");
+				}
 				move(["toRight", "toUp"], wrapper);
 			}
 
-			if (elmt.classList.contains("selector__2")) {
+			if (verifyClass(elmt, "selector__2")) {
+				if (!verifyClass(img2, "is-scaling")) {
+					addClass(img2, "is-scaling");
+				}
 				move(["toLeft", "toDown"], wrapper);
 			}
 
-			if (elmt.classList.contains("selector__4")) {
+			if (verifyClass(elmt, "selector__4")) {
+				if (verifyClass(img2, "is-scaling")) {
+					removeClass(img2, "is-scaling");
+				}
 				move(["toLeft", "toUp"], wrapper);
 			}
 			toggleClass(previous, "is-current");
@@ -81,7 +102,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	arrow2.addEventListener("click", function (e) {
 		move(["toLeft", "toUp"], wrapper);
 		setTimeout(function () {
-			img2.classList.remove("is-scaling");
+			if (verifyClass(img2)) {
+				removeClass(img2, "is-scaling");
+			}
 			selector[1].classList.remove("is-current");
 			selector[3].classList.add("is-current");
 		}, timeOut);
