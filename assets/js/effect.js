@@ -2,8 +2,8 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	function byId(id) {
 		return document.getElementById(id);
 	}
-	function byClass(classes) {
-		return document.getElementsByClassName(classes);
+	function byClass(classe) {
+		return document.getElementsByClassName(classe);
 	}
 
 	function verifyClass(elmt, className) {
@@ -65,6 +65,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let navbarBox = byId("navbar_box");
 	let selector = byClass("selector");
 	let timeOut = 400;
+	let isClicked = false;
 
 	// selector init
 	selector[0].classList.add("is-current");
@@ -135,6 +136,22 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	});
 
 	listen(navbarBox, "click", function (e) {
-		console.log("hello");
+		if (isClicked) {
+			navbarBox.childNodes[1].style.transformOrigin = "center left";
+			navbarBox.childNodes[1].style.transform = "rotateZ(0deg)";
+			navbarBox.childNodes[5].style.transformOrigin = "center left";
+			navbarBox.childNodes[5].style.transform = "rotateZ(0deg)";
+			navbarBox.childNodes[3].style.visibility = "visible";
+			e.target.removeEventListener("click", this);
+			isClicked = false;
+		} else {
+			navbarBox.childNodes[3].style.visibility = "hidden";
+			navbarBox.childNodes[1].style.transformOrigin = "center left";
+			navbarBox.childNodes[1].style.transform = "rotateZ(45deg)";
+			navbarBox.childNodes[5].style.transformOrigin = "center left";
+			navbarBox.childNodes[5].style.transform = "rotateZ(-45deg)";
+			e.target.removeEventListener("click", this);
+			isClicked = true;
+		}
 	});
 });
