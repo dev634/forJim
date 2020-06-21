@@ -1,8 +1,11 @@
+/*Globals variables*/
+
 :root {
 	--white: #dfdfdf;
 	--black: #202020;
 }
 
+/*Base*/
 * {
 	margin: 0;
 	padding: 0;
@@ -208,6 +211,7 @@ body {
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-position: center;
+	transition: all 0.4s ease-in;
 }
 
 .img-1 {
@@ -274,6 +278,59 @@ body {
 	transform: translate(50%, -50%) rotateZ(180deg);
 }
 
+.sidebar {
+	position: fixed;
+	left: -25rem;
+	top: 0;
+	background-color: rgba(20, 20, 20, 0.75);
+	width: 25rem;
+	height: 100%;
+	z-index: 10;
+	transition: all 0.4s ease-in;
+}
+.sidebar__title {
+	background-color: rgba(20, 20, 20, 0.9);
+	color: var(--white);
+	padding: 2rem 0;
+	font-size: 3rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+.sidebar__item {
+	padding: 2rem 0 2rem 2rem;
+}
+
+.sidebar__title,
+.sidebar__item {
+	border-bottom: 1px solid var(--white);
+}
+
+.sidebar__icon_1 {
+	margin-right: 1rem;
+}
+
+.sidebar__icon_2 {
+	margin-right: 0.75rem;
+}
+
+.sidebar__icon_3 {
+	margin-right: 0.75rem;
+}
+
+.sidebar__icon_4 {
+	margin-right: 1.5rem;
+}
+
+.sidebar__link {
+	font-size: 2.5rem;
+	font-weight: 300;
+	text-decoration: none;
+	color: var(--white);
+}
+
+/*Directions*/
+
 .toLeft {
 	position: relative;
 	left: -100vw;
@@ -296,15 +353,6 @@ body {
 	position: relative;
 	top: 0vh;
 	transition: all 0.4s ease-out;
-}
-
-.is-scaling {
-	animation: scaling ease 1s forwards;
-	transition: all 0.4s ease;
-}
-
-.is-current {
-	opacity: 1;
 }
 
 /* Fonts */
@@ -422,4 +470,15 @@ body {
 .container {
 	display: flex;
 	width: 1200px;
+}
+
+/*states*/
+
+.is-scaling {
+	animation: scaling ease 1s forwards;
+	transition: all 0.4s ease;
+}
+
+.is-current {
+	opacity: 1;
 }

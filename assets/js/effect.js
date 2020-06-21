@@ -60,11 +60,19 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let arrow2 = byId("arrow-2");
 	let arrow3 = byId("arrow-3");
 	let arrow4 = byId("arrow-4");
+	let selector1 = byClass("selector__1");
+	let selector2 = byClass("selector__2");
+	let selector3 = byClass("selector__3");
+	let selector4 = byClass("selector__4");
 	let wrapper = byId("wrapper");
+	let img1 = byId("img-1");
 	let img2 = byId("img-2");
+	let img3 = byId("img-3");
+	let img4 = byId("img-4");
 	let navbarBox = byId("navbar_box");
 	let selector = byClass("selector");
 	let timeOut = 400;
+	let sidebar = byId("sidebar");
 	let isClicked = false;
 
 	// selector init
@@ -144,6 +152,20 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			navbarBox.childNodes[3].style.visibility = "visible";
 			e.target.removeEventListener("click", this);
 			isClicked = false;
+			sidebar.style.left = "-25rem";
+			if (verifyClass(selector1[0], "is-current")) {
+				img1.style.marginLeft = "0";
+				img1.style.paddingRight = "0";
+			} else if (verifyClass(selector2[0], "is-current")) {
+				img2.style.marginLeft = "0";
+				img2.style.width = "100vw";
+			} else if (verifyClass(selector3[0], "is-current")) {
+				img3.style.marginLeft = "0";
+				img3.style.paddingRight = "0";
+			} else if (verifyClass(selector4[0], "is-current")) {
+				img4.style.marginLeft = "0";
+				img4.style.width = "100vw";
+			}
 		} else {
 			navbarBox.childNodes[3].style.visibility = "hidden";
 			navbarBox.childNodes[1].style.transformOrigin = "center left";
@@ -152,6 +174,20 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			navbarBox.childNodes[5].style.transform = "rotateZ(-45deg)";
 			e.target.removeEventListener("click", this);
 			isClicked = true;
+			sidebar.style.left = 0;
+			if (verifyClass(selector1[0], "is-current")) {
+				img1.style.marginLeft = "25rem";
+				img1.style.paddingRight = "25rem";
+			} else if (verifyClass(selector2[0], "is-current")) {
+				img2.style.marginLeft = "25rem";
+				img2.style.width = "calc(100vw - 25rem)";
+			} else if (verifyClass(selector3[0], "is-current")) {
+				img3.style.marginLeft = "25rem";
+				img3.style.paddingRight = "25rem";
+			} else if (verifyClass(selector4[0], "is-current")) {
+				img4.style.marginLeft = "25rem";
+				img4.style.width = "calc(100vw - 25rem)";
+			}
 		}
 	});
 });
