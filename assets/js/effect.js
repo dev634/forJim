@@ -1,6 +1,23 @@
 window.addEventListener("DOMContentLoaded", function (e) {
-	function move(direction, element) {
-		element.classList.add(direction);
+	function move(direction = [], element) {
+		switch (direction.join()) {
+			case ["toRight", "toUp"].join():
+				element.classList.remove("toLeft", "toDown");
+				break;
+			case ["toLeft", "toUp"].join():
+				element.classList.remove("toRight", "toDown");
+				break;
+			case ["toRight", "toDown"].join():
+				element.classList.remove("toLeft", "toUp");
+				break;
+			case ["toLeft", "toDown"].join():
+				element.classList.remove("toRight", "toUp");
+				break;
+			default:
+				console.log("Bad direction ....");
+				break;
+		}
+		element.classList.add(direction[0], direction[1]);
 	}
 
 	function previousElmt(obj) {
@@ -54,8 +71,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	}
 
 	arrow1.addEventListener("click", function (e) {
-		wrapper.classList.remove("toRight", "toUp");
-		wrapper.classList.add("toLeft", "toDown");
+		move(["toLeft", "toDown"], wrapper);
 		setTimeout(function () {
 			img2.classList.add("is-scaling");
 			selector[0].classList.remove("is-current");
@@ -64,8 +80,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	});
 
 	arrow2.addEventListener("click", function (e) {
-		wrapper.classList.remove("toRight", "toDown");
-		wrapper.classList.add("toLeft", "toUp");
+		move(["toLeft", "toUp"], wrapper);
 		setTimeout(function () {
 			img2.classList.remove("is-scaling");
 			selector[1].classList.remove("is-current");
@@ -74,8 +89,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	});
 
 	arrow4.addEventListener("click", function (e) {
-		wrapper.classList.remove("toLeft", "toDown");
-		wrapper.classList.add("toRight", "toUp");
+		move(["toRight", "toUp"], wrapper);
 		setTimeout(function () {
 			selector[3].classList.remove("is-current");
 			selector[2].classList.add("is-current");
@@ -83,10 +97,8 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	});
 
 	arrow3.addEventListener("click", function (e) {
-		wrapper.classList.remove("toLeft", "toUp");
-		wrapper.classList.add("toRight", "toDown");
+		move(["toRight", "toDown"], wrapper);
 		setTimeout(function () {
-			wrapper.classList.remove("toUp", "toLeft", "toRight", "toDown");
 			selector[2].classList.remove("is-current");
 			selector[0].classList.add("is-current");
 		}, 400);
