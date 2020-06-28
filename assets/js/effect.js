@@ -1,4 +1,13 @@
 window.addEventListener("DOMContentLoaded", function (e) {
+	function simulateClick(target, eventName) {
+		var event = new MouseEvent(eventName, {
+			"view": window,
+			"bubbles": true,
+			"cancelable": true
+		});
+		target.dispatchEvent(event);
+	}
+
 	function byId(id) {
 		return document.getElementById(id);
 	}
@@ -81,12 +90,12 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	for (let elmt of selector) {
 		listen(elmt, "click", function (e) {
 			let previous = previousElmt(selector);
-
 			if (verifyClass(elmt, "selector__3")) {
 				if (verifyClass(img2, "is-scaling")) {
 					removeClass(img2, "is-scaling");
 				}
 				move(["toRight", "toUp"], wrapper);
+				simulateClick(navbarBox, "click");
 			}
 
 			if (verifyClass(elmt, "selector__2")) {
@@ -94,6 +103,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 					addClass(img2, "is-scaling");
 				}
 				move(["toLeft", "toDown"], wrapper);
+				simulateClick(navbarBox, "click");
 			}
 
 			if (verifyClass(elmt, "selector__4")) {
@@ -101,6 +111,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 					removeClass(img2, "is-scaling");
 				}
 				move(["toLeft", "toUp"], wrapper);
+				simulateClick(navbarBox, "click");
 			}
 			toggleClass(previous, "is-current");
 			toggleClass(elmt, "is-current");
@@ -109,11 +120,14 @@ window.addEventListener("DOMContentLoaded", function (e) {
 
 	arrow1.addEventListener("click", function (e) {
 		move(["toLeft", "toDown"], wrapper);
+		img2.classList.add("is-scaling");
 		setTimeout(function () {
-			img2.classList.add("is-scaling");
 			selector[0].classList.remove("is-current");
 			selector[1].classList.add("is-current");
 		}, timeOut);
+		if (isClicked) {
+			simulateClick(navbarBox, "click");
+		}
 	});
 
 	arrow2.addEventListener("click", function (e) {
@@ -125,6 +139,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			selector[1].classList.remove("is-current");
 			selector[3].classList.add("is-current");
 		}, timeOut);
+		if (isClicked) {
+			simulateClick(navbarBox, "click");
+		}
 	});
 
 	arrow3.addEventListener("click", function (e) {
@@ -133,6 +150,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			selector[2].classList.remove("is-current");
 			selector[0].classList.add("is-current");
 		}, timeOut);
+		if (isClicked) {
+			simulateClick(navbarBox, "click");
+		}
 	});
 
 	arrow4.addEventListener("click", function (e) {
@@ -141,6 +161,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			selector[3].classList.remove("is-current");
 			selector[2].classList.add("is-current");
 		}, timeOut);
+		if (isClicked) {
+			simulateClick(navbarBox, "click");
+		}
 	});
 
 	listen(navbarBox, "click", function (e) {
@@ -156,6 +179,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			if (verifyClass(selector1[0], "is-current")) {
 				img1.style.marginLeft = "0";
 				img1.style.paddingRight = "0";
+				img1.style.width = "100vw";
 			} else if (verifyClass(selector2[0], "is-current")) {
 				img2.style.marginLeft = "0";
 				img2.style.width = "100vw";
@@ -177,13 +201,13 @@ window.addEventListener("DOMContentLoaded", function (e) {
 			sidebar.style.left = 0;
 			if (verifyClass(selector1[0], "is-current")) {
 				img1.style.marginLeft = "25rem";
-				img1.style.paddingRight = "25rem";
+				img1.style.width = "calc(100vw - 25rem)";
 			} else if (verifyClass(selector2[0], "is-current")) {
 				img2.style.marginLeft = "25rem";
 				img2.style.width = "calc(100vw - 25rem)";
 			} else if (verifyClass(selector3[0], "is-current")) {
 				img3.style.marginLeft = "25rem";
-				img3.style.paddingRight = "25rem";
+				img3.style.width = "calc(100vw - 25rem)";
 			} else if (verifyClass(selector4[0], "is-current")) {
 				img4.style.marginLeft = "25rem";
 				img4.style.width = "calc(100vw - 25rem)";

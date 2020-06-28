@@ -252,7 +252,7 @@ body {
 
 .arrow-1 {
 	position: absolute;
-	right: 20px;
+	right: 0px;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
@@ -282,7 +282,7 @@ body {
 	position: fixed;
 	left: -25rem;
 	top: 0;
-	background-color: rgba(20, 20, 20, 0.75);
+	background-color: rgba(20, 20, 20, 0.4);
 	width: 25rem;
 	height: 100%;
 	z-index: 10;
