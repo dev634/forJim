@@ -80,7 +80,6 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let img4 = byId("img-4");
 	let navbarBox = byId("navbar_box");
 	let selector = byClass("selector");
-	let timeOut = 400;
 	let sidebar = byId("sidebar");
 	let isClicked = false;
 
@@ -95,7 +94,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 					removeClass(img2, "is-scaling");
 				}
 				move(["toRight", "toUp"], wrapper);
-				simulateClick(navbarBox, "click");
+				if (isClicked) {
+					simulateClick(navbarBox, "click");
+				}
 			}
 
 			if (verifyClass(elmt, "selector__2")) {
@@ -103,7 +104,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 					addClass(img2, "is-scaling");
 				}
 				move(["toLeft", "toDown"], wrapper);
-				simulateClick(navbarBox, "click");
+				if (isClicked) {
+					simulateClick(navbarBox, "click");
+				}
 			}
 
 			if (verifyClass(elmt, "selector__4")) {
@@ -111,7 +114,9 @@ window.addEventListener("DOMContentLoaded", function (e) {
 					removeClass(img2, "is-scaling");
 				}
 				move(["toLeft", "toUp"], wrapper);
-				simulateClick(navbarBox, "click");
+				if (isClicked) {
+					simulateClick(navbarBox, "click");
+				}
 			}
 			toggleClass(previous, "is-current");
 			toggleClass(elmt, "is-current");
