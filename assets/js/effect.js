@@ -82,6 +82,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let selector = byClass("selector");
 	let sidebar = byId("sidebar");
 	let isClicked = false;
+	let timeOut = 400;
 
 	// selector init
 	selector[0].classList.add("is-current");
@@ -190,7 +191,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 				img2.style.width = "100vw";
 			} else if (verifyClass(selector3[0], "is-current")) {
 				img3.style.marginLeft = "0";
-				img3.style.paddingRight = "0";
+				img3.style.width = "100vw";
 			} else if (verifyClass(selector4[0], "is-current")) {
 				img4.style.marginLeft = "0";
 				img4.style.width = "100vw";
