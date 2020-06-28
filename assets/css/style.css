@@ -3,6 +3,8 @@
 :root {
 	--white: #dfdfdf;
 	--black: #202020;
+	--blue: rgb(104, 175, 255);
+	--gutter: 4rem;
 }
 
 /*Base*/
@@ -33,11 +35,11 @@ body {
 	width: 1200px;
 }
 
-.img-1 .layer {
+.layer {
 	position: absolute;
+	top: 0;
 	left: 0;
 	right: 0;
-	top: 0;
 	bottom: 0;
 	background-color: var(--black);
 	opacity: 0.8;
@@ -123,7 +125,8 @@ body {
 	position: relative;
 	height: 4px;
 	width: 100%;
-	background-color: var(--white);
+	background-color: var(--blue);
+
 	border-radius: 10px;
 }
 
@@ -141,6 +144,8 @@ body {
 }
 
 .selector__block {
+	position: relative;
+	left: 48px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -155,7 +160,7 @@ body {
 	align-items: center;
 	width: 20px;
 	height: 20px;
-	border: 2px solid var(--white);
+	border: 2px solid var(--blue);
 	border-radius: 50%;
 	cursor: not-allowed;
 }
@@ -184,7 +189,7 @@ body {
 }
 
 .social_box .social_box_item .social_box_link {
-	color: var(--white);
+	color: var(--blue);
 }
 
 .social_box .social_box_item:not(:last-child) {
@@ -211,6 +216,7 @@ body {
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 	transition: all 0.4s ease-in;
 }
 
@@ -223,10 +229,13 @@ body {
 
 .img-2 {
 	background-image: url("../img/img-2.jpg");
+	display: flex;
+	align-items: center;
 }
 
 .img-3 {
 	background-image: url("../img/img-3.jpg");
+	background-position: bottom;
 }
 
 .img-4 {
@@ -260,15 +269,15 @@ body {
 .arrow-2 {
 	position: absolute;
 	bottom: 80px;
-	right: 50%;
+	right: calc(50% - 48px);
 	transform: translate(-30%, -50%) rotateZ(90deg);
 }
 
 .arrow-3 {
 	position: absolute;
 	top: 20px;
-	left: 50%;
-	transform: translate(-127%, 50%) rotateZ(-90deg);
+	left: calc(50% - 30px);
+	transform: rotateZ(-90deg);
 }
 
 .arrow-4 {
@@ -303,7 +312,11 @@ body {
 
 .sidebar__title,
 .sidebar__item {
-	border-bottom: 1px solid var(--white);
+	border-bottom: 1px solid var(--black);
+}
+
+.sidebar__icon {
+	color: var(--blue);
 }
 
 .sidebar__icon_1 {
@@ -326,7 +339,50 @@ body {
 	font-size: 2.5rem;
 	font-weight: 300;
 	text-decoration: none;
-	color: var(--white);
+	color: var(--blue);
+}
+
+.card {
+	margin-top: -100px;
+	width: 350px;
+	height: 400px;
+	background-color: var(--white);
+	box-shadow: 2px 2px 6px 0px var(--black);
+	z-index: 20;
+	opacity: 0.8;
+}
+
+.card__head {
+	width: 100%;
+	height: 175px;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-size: cover;
+	background-color: var(--black);
+}
+
+.card:not(:last-child) {
+	margin-right: var(--gutter);
+}
+
+.card__list {
+	list-style-type: none;
+}
+
+.card__1 .card__head {
+	background-image: url("../img/thumbnails/vietnam-thumb.jpg");
+}
+
+.card__2 .card__head {
+	background-image: url("../img/thumbnails/thailand-thumb.jpg");
+}
+
+.card__3 .card__head {
+	background-image: url("../img/thumbnails/indonesie-thumb.jpg");
+}
+
+.card__4 .card__head {
+	background-image: url("../img/thumbnails/singapore-thumb.jpg");
 }
 
 /*Directions*/
@@ -470,13 +526,13 @@ body {
 .container {
 	display: flex;
 	width: 1200px;
+	margin: 0 auto;
 }
 
 /*states*/
 
 .is-scaling {
 	animation: scaling ease 1s forwards;
-	transition: all 0.4s ease;
 }
 
 .is-current {
