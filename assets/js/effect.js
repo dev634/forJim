@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	function byId(id) {
 		return document.getElementById(id);
 	}
+
 	function byClass(classe) {
 		return document.getElementsByClassName(classe);
 	}
@@ -83,6 +84,30 @@ window.addEventListener("DOMContentLoaded", function (e) {
 	let sidebar = byId("sidebar");
 	let isClicked = false;
 	let timeOut = 400;
+	let navbarLinks = byClass("sidebar__link");
+
+	for (let elmt of navbarLinks) {
+		if (verifyClass(elmt, "sidebar__link_1")) {
+			listen(elmt, "click", function (e) {
+				simulateClick(selector1[0], "click");
+			});
+		} else if (verifyClass(elmt, "sidebar__link_2")) {
+			listen(elmt, "click", function (e) {
+				e.preventDefault();
+				simulateClick(selector2[0], "click");
+			});
+		} else if (verifyClass(elmt, "sidebar__link_3")) {
+			listen(elmt, "click", function (e) {
+				e.preventDefault();
+				simulateClick(selector4[0], "click");
+			});
+		} else if (verifyClass(elmt, "sidebar__link_4")) {
+			listen(elmt, "click", function (e) {
+				e.preventDefault();
+				simulateClick(selector3[0], "click");
+			});
+		}
+	}
 
 	// selector init
 	selector[0].classList.add("is-current");
