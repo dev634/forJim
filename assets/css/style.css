@@ -3,7 +3,10 @@
 :root {
 	--white: #dfdfdf;
 	--black: #202020;
+	--dark-blue: #388ef0;
 	--blue: rgb(104, 175, 255);
+	--dark-gray: #333333;
+	--gray: #505050;
 	--gutter: 4rem;
 }
 
@@ -383,6 +386,50 @@ body {
 
 .card__4 .card__head {
 	background-image: url("../img/thumbnails/singapore-thumb.jpg");
+}
+.card__title {
+	margin: 1rem 0 2rem 0;
+	text-align: center;
+	color: var(--black);
+	font-size: 2.4rem;
+	font-weight: 600;
+	text-shadow: 2px 2px 2px var(--gray);
+}
+
+.card__list_item {
+	margin-left: 4rem;
+	text-align: left;
+	color: var(--dark-gray);
+	font-size: 2rem;
+	text-shadow: 0px 0px 1px var(--gray);
+	font-weight: 300;
+}
+
+.card__list_item:not(:last-child) {
+	padding-bottom: 1.2rem;
+}
+
+.card__list_icon {
+	color: var(--dark-blue);
+	text-shadow: 2px 2px 2px var(--dark-gray);
+}
+
+.card__list_icon-1 {
+	margin-left: 2px;
+	margin-right: 2rem;
+}
+
+.card__list_icon-2 {
+	margin-right: 1.6rem;
+}
+
+.card__list_icon-3 {
+	margin-right: 1rem;
+}
+
+.card__list_icon-4 {
+	margin-left: 4px;
+	margin-right: 2rem;
 }
 
 /*Directions*/
