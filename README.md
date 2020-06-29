@@ -1,7 +1,7 @@
 # forJim
 
 
-##Aim of the project :
+## Aim of the project :
 
 The challenge of the project was not 
 to use and make appear scrollbar so to 
